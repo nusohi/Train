@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour {
                         MoveCharacter();
                         break;
                     default:
-                        print("碰到了别的东西");
+                        print("碰到了别的东西 " + mouseHit.collider.gameObject.name);
                         break;
                 }
 
