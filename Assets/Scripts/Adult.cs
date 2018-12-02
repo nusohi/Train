@@ -14,8 +14,7 @@ public class Adult : MonoBehaviour {
 
     public GameObject Knife;
     public GameObject Bone;
-    public GameObject Arrow;
-    private BoxCollider boxCollider;
+    private BoxCollider collision;
 
     // 移动位置
     private Vector3 targetPosition;
@@ -28,7 +27,7 @@ public class Adult : MonoBehaviour {
     void Start() {
         targetPosition = transform.position;
         velocity = new Vector3(0, 0, 0);
-        boxCollider = this.GetComponent<BoxCollider>();
+        collision = this.GetComponent<BoxCollider>();
     }
 
     void Update() {
@@ -84,15 +83,9 @@ public class Adult : MonoBehaviour {
 
     // 选择人物
     public void ClickOnMe() {
-        // GameManager.Instance.ControlCharacter(this.tag, ID);
-        Arrow.SetActive(true);
-        print("ClickOnMe绑好了！！");
+        GameManager.Instance.ControlCharacter(this.tag, ID);
     }
-    // 失去焦点
-    public void UnClickOnMe() {
-        Arrow.SetActive(false);
-    }
-
+    
     // 移动到位置
     public void Move(float X) {
         isMoving = true;
@@ -103,15 +96,12 @@ public class Adult : MonoBehaviour {
     //死亡
     public void Die() {
         GameManager.Instance.Die(this.tag, ID);
-        boxCollider.enabled = false;
+
         /***************************************  缺动画  *************************************/
     }
 
 
     // 状态'接口'
-    public void GetID(ref int ID) {
-        ID = this.ID;
-    }
     public void HasKnife(ref bool hasKnife) {
         hasKnife = this.hasKnife;
     }

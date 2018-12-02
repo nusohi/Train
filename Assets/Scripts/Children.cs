@@ -8,13 +8,13 @@ public class Children : MonoBehaviour
     public float CryTimer = 0;
     public float CryTime = 3f;
 
-    public void OnTriggerEnter(Collider collider)
-    {
-        if (collider.tag == "Kidnapper")
-        {
-            SendMessage("Cry");
-        }
-    }
+    //public void OnTriggerEnter(Collider collider)
+    //{
+    //    if (collider.tag == "Kidnapper")
+    //    {
+    //        SendMessage("Cry");
+    //    }
+    //}
     public void Cry()
     {
         int k = Random.Range(0, 2);

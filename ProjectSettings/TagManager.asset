@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Adult
+  - Children
+  - Kidnapper
+  - KidnapperBoss
+  - Dog
+  - Knife
+  - Bone
+  - Carriage
   layers:
   - Default
   - TransparentFX

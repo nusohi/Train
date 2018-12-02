@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour {
 
     public float Countdown = 60.0f;//倒计时
     //大人
+    private int AdultNumber = 7;
     private string CurrentCharacter;
-    private int CurrentID;
+    public int CurrentID;
     public Adult[] Adults;
     public bool[] AdultDie;
     //劫匪A
@@ -27,11 +28,12 @@ public class GameManager : MonoBehaviour {
 
     //鼠标位置
     public Vector3 MousePosition;
+    private Vector3 mouseTargetPos;
 
 	// Use this for initialization
 	void Awake () {
         Instance = this;
-        for(int i=0;i<7;i++)
+        for(int i=0;i<Adults.Length;i++)
         {
             Adults[i].ID = i;
         }
@@ -40,10 +42,40 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        MousePosition = Input.mousePosition;
         Countdown -= Time.deltaTime;//更新倒计时
         if(Input.GetMouseButtonDown(0))//按下鼠标
         {
-            MousePosition = Input.mousePosition;
+            //获取屏幕坐标
+            Vector3 mouseScreenPos = Input.mousePosition;
+
+            //定义射线
+            Ray mouseRay = Camera.main.ScreenPointToRay(mouseScreenPos);
+            RaycastHit mouseHit;
+            
+            //判断射线击中大人、狗或小孩
+            if(Physics.Raycast(mouseRay,out mouseHit))
+            {
+                switch(mouseHit.collider.gameObject.tag)//
+                {
+                    case "Adult":
+                        int ID = 0;
+                        mouseHit.collider.gameObject.SendMessage("GetID", ID);
+                        ControlCharacter(mouseHit.collider.gameObject.tag, ID);
+                        break;
+                    case "Dog":
+
+                        break;
+                    case "Children":
+                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        break;
+                    case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
+                        MoveCharacter();
+                        break;
+                }
+
+            }
+            
         }
         
 	}
@@ -68,18 +100,18 @@ public class GameManager : MonoBehaviour {
             Adults[ID].GetComponent <Adult> ().enabled = false;
             return;
         }
-        if(tag=="Dog")
+        if(tag=="Dog")  //  狗死
         {
             DogDie = true;
             dog.GetComponent < Dog> ().enabled = false;
             return;
         }
-        if(tag=="KidnapperBoss")
+        if(tag=="KidnapperBoss")    //绑匪B死
         {
             bossdie = true;
             kidnapperboss.GetComponent<KidnapperBoss>().enabled = false;
         }
-        else
+        else            //绑匪A死
         {
             KidnapperDie = true;
             Kidnappers.GetComponent < Kidnapper > ().enabled = false;
@@ -91,15 +123,10 @@ public class GameManager : MonoBehaviour {
     //控制人物
     public void ControlCharacter(string tag,int ID=0)
     {
-            CurrentCharacter = tag;
+        CurrentCharacter = tag;
         if(tag=="Adult")
         {
-            Adults[ID].GetComponent < Adult > ().enabled = true;
             CurrentID = ID;
-        }
-        if(tag=="Dog")
-        {
-            dog.GetComponent<Dog>().enabled = true;
         }
     }
 
@@ -111,7 +138,7 @@ public class GameManager : MonoBehaviour {
         {
             Adults[CurrentID].Move(MousePosition.x);
         }
-        else
+        else if(CurrentCharacter=="Dog")
         {
             dog.Move(MousePosition.x);
         }

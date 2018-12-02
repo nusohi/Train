@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Kidnapper : MonoBehaviour
 {
-    public int Attention = 0;
+    public int Attention = 0;//警戒值
 
-
+   
 
     public Adult Adult;
-    public Children Child;
-    public Kidnapper Kinnaper;
+    public Children Children;
+    public Kidnapper kidnapper;
 
 
 
@@ -21,6 +21,7 @@ public class Kidnapper : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+       
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -65,9 +66,9 @@ public class Kidnapper : MonoBehaviour
                 break;
             case "Child":
             {
-                if (Child.isCrying == true)
+                if (Children.isCrying == true)
                 {
-                    //停在原地 待写
+                    
 
 
                     Attention += 10;
@@ -90,8 +91,8 @@ public class Kidnapper : MonoBehaviour
         
         //死亡动画 待写
 
-        GameManager.Instance.Die( "Kinnaper");
-        // B警戒值增加  SendMessage("");
+        GameManager.Instance.Die( "kidnapper");
+        SendMessage("AddAttention");
 
     }
 }
