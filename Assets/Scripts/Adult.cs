@@ -56,6 +56,16 @@ public class Adult : MonoBehaviour {
                 Bone.SetActive(true);
                 hasBone = true;
                 break;
+            // 碰到绑匪的眼神
+            case "eyes":
+                if (hasKnife) {
+                    other.gameObject.SendMessage("Fire");
+                    Die();
+                }
+                if (isMoving) {
+                    other.gameObject.SendMessage("AddAttention");
+                }
+                break;
             // 活物
             case "Kidnapper":
                 KillKindnapper(other.gameObject);
@@ -101,7 +111,7 @@ public class Adult : MonoBehaviour {
 
     //死亡
     public void Die() {
-        GameManager.Instance.Die(this.tag, ID);
+        GameManager.Instance.Die("Adult", ID);
 
         /***************************************  缺动画  *************************************/
     }
