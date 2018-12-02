@@ -111,7 +111,7 @@ public class Adult : MonoBehaviour {
 
     //死亡
     public void Die() {
-        GameManager.Instance.Die("Adult", ID);
+        GameManager.Instance.Die(this.tag, ID);
 
         /***************************************  缺动画  *************************************/
     }
