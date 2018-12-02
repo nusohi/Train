@@ -20,7 +20,7 @@ public class Adult : MonoBehaviour {
     private Vector3 targetPosition;
     private float LerpT = 1f;
     // 转头方向
-    Vector3 localScale;
+    private Vector3 localScale;
 
     
 
@@ -30,7 +30,7 @@ public class Adult : MonoBehaviour {
         collision = this.GetComponent<BoxCollider>();
         localScale = transform.localScale;
     }
-    
+
     void Update() {
         // 移动到目标位置
         if (isMoving) {
@@ -83,7 +83,7 @@ public class Adult : MonoBehaviour {
         }
     }
     
-    
+
     // 移动到位置
     public void Move(float X) {
         // 转头
