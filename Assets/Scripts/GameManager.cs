@@ -154,15 +154,16 @@ public class GameManager : MonoBehaviour {
             dog.GetComponent < Dog> ().enabled = false;
             return;
         }
-        if(tag=="KidnapperBoss")    //绑匪B死
+        if (tag == "KidnapperBoss")    //绑匪B死
         {
             bossdie = true;
             kidnapperboss.GetComponent<KidnapperBoss>().enabled = false;
         }
-        else            //绑匪A死
+        else if (tag == "Kidnapper")          //绑匪A死
         {
             KidnapperDie = true;
-            Kidnappers.GetComponent < Kidnapper > ().enabled = false;
+            Kidnappers.GetComponent<Kidnapper>().enabled = false;
+            Kidnappers.GetComponent<KidnapperMove>().enabled = false;
             return;
         }
     }

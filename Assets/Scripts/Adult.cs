@@ -45,38 +45,43 @@ public class Adult : MonoBehaviour {
     
     // 碰撞检测
     private void OnTriggerEnter(Collider other) {
+        print("人" + ID + "碰到了" + other.name);
         switch (other.tag) {
             // 道具
             case "Knife":
-                Destroy(other.gameObject);
-                Knife.SetActive(true);
-                hasKnife = true;
+                if (!hasBone) {
+                    Destroy(other.gameObject);
+                    Knife.SetActive(true);
+                    hasKnife = true;
+                }
                 break;
             case "Bone":
-                Destroy(other.gameObject);
-                Bone.SetActive(true);
-                hasBone = true;
+                if (!hasKnife) {
+                    Destroy(other.gameObject);
+                    Bone.SetActive(true);
+                    hasBone = true;
+                }
                 break;
             // 碰到绑匪的眼神
-            case "eyes":
+            case "Eyes":
                 if (hasKnife) {
-                    other.gameObject.SendMessage("Fire");
+                    other.SendMessage("Fire");
                     Die();
                 }
                 if (isMoving) {
-                    other.gameObject.SendMessage("AddAttention");
+                    other.SendMessage("AddAttention");
                 }
+                print("ID " + ID + " HasKinfe: " + (hasKnife ? "true" : "false") + "HasBone: " + (hasBone ? "true" : "false")); ;
                 break;
             // 活物
             case "Kidnapper":
-                KillKindnapper(other.gameObject);
+                KillKindnapper(other);
                 break;
             case "Dog":
                 EnableDog(other.gameObject);
                 print("人" + ID + "碰到狗了");
                 break;
             default:
-                print("人" + ID + "碰到了nothing");
                 break;
         }
     }
@@ -86,12 +91,14 @@ public class Adult : MonoBehaviour {
             print("骨头给狗了");
             gameObject.GetComponent<Dog>().enabled = true;
             hasBone = false;
+            Bone.SetActive(false);
         }
     }
     // 杀死劫匪
-    private void KillKindnapper(GameObject gameObject) {
+    private void KillKindnapper(Collider collider) {
         if (hasKnife) {
-            gameObject.SendMessage("Die");
+            print("已经告诉Kidnapper他死了");
+            collider.SendMessage("Die");
             Knife.SetActive(false);
             hasKnife = false;
         }
@@ -100,6 +107,8 @@ public class Adult : MonoBehaviour {
 
     // 移动到位置
     public void Move(float X) {
+        if (isDead)
+            return;
         // 转头
         if (X - targetPosition.x > 0) {
             // 向右看
@@ -120,6 +129,8 @@ public class Adult : MonoBehaviour {
 
     //死亡
     public void Die() {
+        isDead = true;
+        print("我死了，ID " + ID);
         GameManager.Instance.Die(this.tag, ID);
 
         /***************************************  缺动画  *************************************/

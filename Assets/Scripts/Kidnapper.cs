@@ -87,6 +87,7 @@ public class Kidnapper : MonoBehaviour
 
     public void Die()
     {
+        print("劫匪我死了");
         IsDead = true;
         
         //死亡动画 待写
