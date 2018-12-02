@@ -21,6 +21,7 @@ public class Children : MonoBehaviour
         if (k == 0)       //哭
         {
             isCrying = true;
+            print("哭");
             KidnapperMove.Instance.navAgent.speed = 0;
             CryTimer += Time.deltaTime;
             if (CryTimer >= CryTime)

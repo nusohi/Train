@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dog : MonoBehaviour {
+public class Dog : Adult {
     
 
-    public void Move(float x) {
+    public new void Move(float x) {
 
     }
 }
