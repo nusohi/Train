@@ -38,32 +38,7 @@ public class Kidnapper : MonoBehaviour
     {
         switch (collider.tag)
         {
-            case "Adult":
-                /*  
-                bool hasKnife = false;
-                collider.SendMessage("HasKnife", hasKnife);
-                */
-                if (Adult.hasKnife == true)
-                {
-                    //击毙乘客 待写
-
-
-                    Attention += 50;
-                }
-                else
-                {
-                    if (Adult.isMoving == true)
-                    {
-                        Attention += 20;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-
-
-                break;
+           
             case "Child":
             {
                 if (Children.isCrying == true)
@@ -92,7 +67,7 @@ public class Kidnapper : MonoBehaviour
         
         //死亡动画 待写
 
-        GameManager.Instance.Die( "kidnapper");
+        GameManager.Instance.Die("Kidnapper");
         SendMessage("AddAttention");
 
     }

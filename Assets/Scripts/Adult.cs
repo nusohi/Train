@@ -17,12 +17,12 @@ public class Adult : MonoBehaviour {
     private BoxCollider collision;
 
     // 移动位置
-    private Vector3 targetPosition;
-    private float LerpT = 1f;
+    protected Vector3 targetPosition;
+    protected float LerpT = 1f;
     // 转头方向
     private Vector3 localScale;
-    private Quaternion turnLeft = new Quaternion(0, 0, 0, 0);
-    private Quaternion turnRight = new Quaternion(0, 180, 0, 0);
+    protected Quaternion turnLeft = new Quaternion(0, 0, 0, 0);
+    protected Quaternion turnRight = new Quaternion(0, 180, 0, 0);
 
 
 

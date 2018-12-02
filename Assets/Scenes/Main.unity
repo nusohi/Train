@@ -124,6 +124,28 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 951583037}
   m_Script: {fileID: 11500000, guid: 14279461ee8de7b46848a69e2113a84d, type: 3}
+--- !u!1 &47363663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1331064484964056, guid: e806e5418d01b2b4a9260aa1350c8468,
+    type: 2}
+  m_PrefabInternal: {fileID: 574053817}
+--- !u!114 &47363670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47363663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ec15e590876be40b12e3cd8b0aa574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attention: 0
+  Adult: {fileID: 0}
+  Children: {fileID: 0}
+  kidnapper: {fileID: 0}
+  IsDead: 0
+  rigidbody: {fileID: 0}
 --- !u!1 &49030078
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +812,15 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114722846934845436, guid: e806e5418d01b2b4a9260aa1350c8468,
+        type: 2}
+      propertyPath: PatrolTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331064484964056, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
+      propertyPath: m_TagString
+      value: Kidnapper
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
   m_IsPrefabAsset: 0
@@ -1366,7 +1397,7 @@ MonoBehaviour:
   - {fileID: 1178049187}
   - {fileID: 1056884142}
   AdultDie: 00000000000000
-  Kidnappers: {fileID: 0}
+  Kidnappers: {fileID: 47363670}
   KidnapperDie: 0
   kidnapperboss: {fileID: 0}
   bossdie: 0
@@ -2190,7 +2221,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2034992204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6, y: -0.04, z: 0}
+  m_LocalPosition: {x: -5.08, y: -0.04, z: 0}
   m_LocalScale: {x: 0.34838, y: 0.34838, z: 0.34838}
   m_Children: []
   m_Father: {fileID: 0}
