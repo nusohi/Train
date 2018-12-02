@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour {
                 switch(mouseHit.collider.gameObject.tag)//
                 {
                     case "Adult":
-                        mouseHit.collider.gameObject.SendMessage("GetID");
+                        int ID = 0;
+                        mouseHit.collider.gameObject.SendMessage("GetID", ID);
+                        ControlCharacter(mouseHit.collider.gameObject.tag, ID);
                         break;
                     case "Dog":
 
@@ -119,14 +121,13 @@ public class GameManager : MonoBehaviour {
 
 
     //控制人物
-    public void ControlCharacter(string tag,int ID)
+    public void ControlCharacter(string tag,int ID=0)
     {
         CurrentCharacter = tag;
         if(tag=="Adult")
         {
             CurrentID = ID;
         }
-        print("GM接受ID" + ID);
     }
 
     //移动人物

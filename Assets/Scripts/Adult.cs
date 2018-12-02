@@ -10,7 +10,7 @@ public class Adult : MonoBehaviour {
     public bool isDead = false;
     public bool hasKnife = false;
     public bool hasBone = false;
-    public float step = 0.05f;
+    public float speed = 15;
 
     public GameObject Knife;
     public GameObject Bone;
@@ -18,24 +18,22 @@ public class Adult : MonoBehaviour {
 
     // 移动位置
     private Vector3 targetPosition;
-    private float LerpT = 1f;
-    // 转头方向
-    Vector3 localScale;
+    private Vector3 velocity;
+    private float smoothTime = 0.1f;
 
     
 
 
     void Start() {
         targetPosition = transform.position;
+        velocity = new Vector3(0, 0, 0);
         collision = this.GetComponent<BoxCollider>();
-        localScale = transform.localScale;
     }
-    
+
     void Update() {
         // 移动到目标位置
         if (isMoving) {
-            LerpT = step / Math.Abs(targetPosition.x - transform.position.x);
-            transform.position = Vector3.Lerp(this.transform.position, targetPosition, LerpT);
+            transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
             /***************************************  缺动画  *************************************/
             if (transform.position == targetPosition)
                 isMoving = false;
@@ -82,20 +80,16 @@ public class Adult : MonoBehaviour {
             hasKnife = false;
         }
     }
-    
+
+    // 选择人物
+    public void ClickOnMe() {
+        GameManager.Instance.ControlCharacter(this.tag, ID);
+    }
     
     // 移动到位置
     public void Move(float X) {
-        // 转头
-        if (X - targetPosition.x > 0)
-            localScale.x = -Math.Abs(localScale.x);
-        else
-            localScale.x = Math.Abs(localScale.x);
-        transform.localScale = localScale;
-
-        // 移动
         isMoving = true;
-        LerpT = step / Math.Abs(X - targetPosition.x);
+        velocity.x = Math.Abs(X - targetPosition.x) / speed;
         targetPosition.x = X;
     }
 
@@ -108,10 +102,6 @@ public class Adult : MonoBehaviour {
 
 
     // 状态'接口'
-    public void GetID() {
-        print("获取ID" + ID);
-        GameManager.Instance.ControlCharacter(this.tag, ID);
-    }
     public void HasKnife(ref bool hasKnife) {
         hasKnife = this.hasKnife;
     }
