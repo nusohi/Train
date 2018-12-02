@@ -30,6 +30,13 @@ public class GameManager : MonoBehaviour {
     public Vector3 MousePosition;
     private Vector3 mouseTargetPos;
 
+
+    //结局
+    public bool BadEnd = false;
+    public bool NormalEnd = false;
+    public bool TrueEnd = false;
+
+
 	// Use this for initialization
 	void Awake () {
         Instance = this;
@@ -42,8 +49,28 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        MousePosition = Input.mousePosition;
+
+        //判断结局
         Countdown -= Time.deltaTime;//更新倒计时
+        if(Countdown<=0)
+        {
+            if(KidnapperDie==false&&bossdie==false)//劫匪都没死
+            {
+                NormalEnd = true;   //NormalEnd场景会跳转到badend
+            }
+            else if(KidnapperDie==true&&bossdie==true)  //劫匪全死
+            {
+                TrueEnd = true;
+            }
+            else
+            {
+                BadEnd = true;
+            }
+        }
+        
+        
+        //鼠标点击
+        MousePosition = Input.mousePosition;
         if(Input.GetMouseButtonDown(0))//按下鼠标
         {
             //获取屏幕坐标
@@ -77,16 +104,36 @@ public class GameManager : MonoBehaviour {
             
         }
         
+
+        //结局相关
+
+
 	}
    
 
     //判断游戏结局
     public void GameOver()
     {
-        if(Countdown<=0)
+
+        if(TrueEnd)
         {
-            SceneManager.LoadScene("Ending");//游戏结束
+            SceneManager.LoadScene("TrueEnding");
+            return;
         }
+        if(NormalEnd)
+        {
+            SceneManager.LoadScene("NormalEnding");
+            return;
+        }
+        if(BadEnd)
+        {
+            SceneManager.LoadScene("BadEnding");
+            return;
+        }
+        //if(Countdown<=0)
+        //{
+        //    SceneManager.LoadScene("Ending");//游戏结束
+        //}
     }
 
 
