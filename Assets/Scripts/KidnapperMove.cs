@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,9 +35,20 @@ public class KidnapperMove : MonoBehaviour
     {
         if (navAgent.remainingDistance < 0.5f)
         {
-            if (transform.position.x== WayPoints[3].position.x)
+            if (Index==0)
             {
-                transform.localScale = new Vector3(-1*transform.localScale.x,transform.localScale.y,transform.localScale.z);
+                localScale.x = Math.Abs(localScale.x);
+                transform.localScale = localScale;
+
+            }
+            else
+            {
+                if (Index==1)
+                {
+                    localScale.x = -Math.Abs(localScale.x);
+                    transform.localScale = localScale;
+                }
+               
             }
 
             

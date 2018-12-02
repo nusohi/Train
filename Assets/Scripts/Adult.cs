@@ -106,7 +106,7 @@ public class Adult : MonoBehaviour {
             ///localScale.x = -Math.Abs(localScale.x);
             transform.rotation = turnRight;
         }
-        else {
+        else if (X - targetPosition.x < 0){
             // 向左看
             ///localScale.x = Math.Abs(localScale.x);
             transform.rotation = turnLeft;
