@@ -18,7 +18,7 @@ public class KidnapperBoss : MonoBehaviour
         }
 	}
 
-    public void AddAttention()
+    public void AddAttentionB()
     {
         Attention += 50;
     }

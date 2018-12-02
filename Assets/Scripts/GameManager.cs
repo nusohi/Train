@@ -24,12 +24,17 @@ public class GameManager : MonoBehaviour {
     //狗
     public Dog dog;
     public bool DogDie=false;
-    
+    //小孩
+    public Children children;
+
+
 
     //鼠标位置
     public Vector3 MousePosition;
     private Vector3 mouseTargetPos;
 
+    //小孩位置
+    public Vector3 ChildPosition;
 
     //结局
     public bool BadEnd = false;
@@ -92,7 +97,14 @@ public class GameManager : MonoBehaviour {
                         mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Children":
-                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        
+                        if (children.isCrying == false)
+                        {
+                            ChildPosition = mouseHit.collider.gameObject.transform.position;
+                            print("哭");
+                            mouseHit.collider.gameObject.SendMessage("Cry");
+                        }
+
                         break;
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
