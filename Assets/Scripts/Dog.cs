@@ -18,28 +18,5 @@ public class Dog : Adult {
         }
     }
 
-    //public new void Move(float X)
-    //{
-    //    if (isDead)
-    //        return;
-    //    // 转头
-    //    if (X - targetPosition.x > 0)
-    //    {
-    //        // 向右看
-    //        ///localScale.x = -Math.Abs(localScale.x);
-    //        transform.rotation = turnRight;
-    //    }
-    //    else if (X - targetPosition.x < 0)
-    //    {
-    //        // 向左看
-    //        ///localScale.x = Math.Abs(localScale.x);
-    //        transform.rotation = turnLeft;
-    //    }
-
-    //    // 移动
-    //    //isMoving = true;
-    //    LerpT = step / Math.Abs(X - targetPosition.x);
-    //    targetPosition.x = X;
-    //}
     
 }
