@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,7 +7,8 @@ using UnityEngine.AI;
 public class KidnapperMove : MonoBehaviour
 {
     public static KidnapperMove Instance;
-
+    private Vector3 localScale;
+    
     public Transform[] WayPoints;
     public float PatrolTimer = 0;
     public float PatrolTime = 3f;
@@ -21,7 +23,8 @@ public class KidnapperMove : MonoBehaviour
 	void Start ()
 	{
 	    Instance = this;
-	}
+	    localScale = transform.localScale;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,8 +35,24 @@ public class KidnapperMove : MonoBehaviour
     {
         if (navAgent.remainingDistance < 0.5f)
         {
-            //navAgent.Stop();
-         
+            if (Index==0)
+            {
+                localScale.x = Math.Abs(localScale.x);
+                transform.localScale = localScale;
+
+            }
+            else
+            {
+                if (Index==1)
+                {
+                    localScale.x = -Math.Abs(localScale.x);
+                    transform.localScale = localScale;
+                }
+               
+            }
+
+            
+
             PatrolTimer += Time.deltaTime;
             if (PatrolTimer >= PatrolTime)
             {
