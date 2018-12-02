@@ -86,11 +86,10 @@ public class GameManager : MonoBehaviour {
                 switch(mouseHit.collider.gameObject.tag)//
                 {
                     case "Adult":
-                        int ID = 0;
                         mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Dog":
-
+                        mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Children":
                         mouseHit.collider.gameObject.SendMessage("Cry");
@@ -173,6 +172,10 @@ public class GameManager : MonoBehaviour {
         if(tag=="Adult")
         {
             CurrentID = ID;
+        }
+        else if(tag=="Dog")
+        {
+            CurrentID = 0;
         }
     }
 
