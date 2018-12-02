@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1524,7 +1524,9 @@ MonoBehaviour:
   bossdie: 0
   dog: {fileID: 398055653}
   DogDie: 0
+  children: {fileID: 0}
   MousePosition: {x: 0, y: 0, z: 0}
+  ChildPosition: {x: 0, y: 0, z: 0}
   BadEnd: 0
   NormalEnd: 0
   TrueEnd: 0
