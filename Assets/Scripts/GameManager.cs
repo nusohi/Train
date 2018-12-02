@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     //实例
@@ -8,7 +9,9 @@ public class GameManager : MonoBehaviour {
     //车厢长度
     public static float CarriageLength;
 
-    public float Countdown = 60.0f;//倒计时
+    //UI文本
+    public Text CountDownText;
+    public float Countdown = 60f;//倒计时
     //大人
     private int AdultNumber = 7;
     private string CurrentCharacter;
@@ -24,7 +27,9 @@ public class GameManager : MonoBehaviour {
     //狗
     public Dog dog;
     public bool DogDie=false;
-    
+
+
+
 
     //鼠标位置
     public Vector3 MousePosition;
@@ -49,10 +54,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
+        //倒计时相关
+        if(Countdown>0)
+        {
+            Countdown -= Time.deltaTime;//更新倒计时
+            CountDownText.text = "Time:" + (int)Countdown;
+        }
         //判断结局
-        Countdown -= Time.deltaTime;//更新倒计时
-        if(Countdown<=0)
+        else
         {
             if(KidnapperDie==false&&bossdie==false)//劫匪都没死
             {
@@ -66,6 +75,7 @@ public class GameManager : MonoBehaviour {
             {
                 BadEnd = true;
             }
+            GameOver();
         }
         
         
@@ -105,11 +115,6 @@ public class GameManager : MonoBehaviour {
             }
             
         }
-        
-
-        //结局相关
-
-
 	}
    
 
