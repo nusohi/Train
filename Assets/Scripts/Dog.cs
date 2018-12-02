@@ -6,6 +6,7 @@ using UnityEngine;
 public class Dog : Adult {
 
     private void OnTriggerEnter(Collider other) {
+        print("狗被碰了！");
         switch (other.tag) {
             case "Kidnapper":
                 other.gameObject.SendMessage("Die");

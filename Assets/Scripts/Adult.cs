@@ -21,8 +21,9 @@ public class Adult : MonoBehaviour {
     private float LerpT = 1f;
     // 转头方向
     private Vector3 localScale;
+    private Quaternion turnLeft = new Quaternion(0, 0, 0, 0);
+    private Quaternion turnRight = new Quaternion(0, 180, 0, 0);
 
-    
 
 
     void Start() {
@@ -72,14 +73,17 @@ public class Adult : MonoBehaviour {
                 break;
             case "Dog":
                 EnableDog(other.gameObject);
+                print("人" + ID + "碰到狗了");
                 break;
             default:
+                print("人" + ID + "碰到了nothing");
                 break;
         }
     }
     // 激活狗的操作
     private void EnableDog(GameObject gameObject) {
         if (hasBone) {
+            print("骨头给狗了");
             gameObject.GetComponent<Dog>().enabled = true;
             hasBone = false;
         }
@@ -97,11 +101,16 @@ public class Adult : MonoBehaviour {
     // 移动到位置
     public void Move(float X) {
         // 转头
-        if (X - targetPosition.x > 0)
-            localScale.x = -Math.Abs(localScale.x);
-        else
-            localScale.x = Math.Abs(localScale.x);
-        transform.localScale = localScale;
+        if (X - targetPosition.x > 0) {
+            // 向右看
+            ///localScale.x = -Math.Abs(localScale.x);
+            transform.rotation = turnRight;
+        }
+        else {
+            // 向左看
+            ///localScale.x = Math.Abs(localScale.x);
+            transform.rotation = turnLeft;
+        }
 
         // 移动
         isMoving = true;
