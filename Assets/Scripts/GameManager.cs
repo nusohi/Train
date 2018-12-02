@@ -60,8 +60,7 @@ public class GameManager : MonoBehaviour {
                 {
                     case "Adult":
                         int ID = 0;
-                        mouseHit.collider.gameObject.SendMessage("GetID", ID);
-                        ControlCharacter(mouseHit.collider.gameObject.tag, ID);
+                        mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Dog":
 
