@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dog : Adult {
 
     private void OnTriggerEnter(Collider other) {
-        print("狗被碰了！");
+        // print("狗被碰了！");
         if (!isMoving)
             return;
         switch (other.tag) {
