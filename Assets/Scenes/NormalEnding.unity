@@ -494,8 +494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -266}
-  m_SizeDelta: {x: 1039.5, y: 230.5}
+  m_AnchoredPosition: {x: -0.000061035156, y: -300}
+  m_SizeDelta: {x: 1039.5, y: 368.5}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &1308628917
 MonoBehaviour:
@@ -529,8 +529,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You saved people tied on the rail successfully!\n\nThough someone still
-    died.\n\nThat doesn't matter because some sacrifice must be made\u2026\u2026"
+  m_Text: "The robbers were all dead!\n\nYou saved people tied on the rail successfully!\n\n\u2026\u2026though
+    someone still died.\n\nThat doesn't matter because some sacrifice must be made\u2026\u2026"
 --- !u!222 &1308628918
 CanvasRenderer:
   m_ObjectHideFlags: 0

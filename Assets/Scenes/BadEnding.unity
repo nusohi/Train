@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
-  m_SizeDelta: {x: 826.4, y: 278.1}
+  m_AnchoredPosition: {x: -10.45, y: 54.3}
+  m_SizeDelta: {x: 1044.1, y: 386.8}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &868539508
 MonoBehaviour:
@@ -462,7 +462,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'SORRY.
+  m_Text: 'THE ROBBER KILLED THEM ALL.
+
+
+    SORRY.
 
 
     YOU CAN''T SAVE ANYONE.'
@@ -710,7 +713,7 @@ GameObject:
   - component: {fileID: 1727264854}
   - component: {fileID: 1727264853}
   m_Layer: 5
-  m_Name: BadEndText (1)
+  m_Name: RightClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
