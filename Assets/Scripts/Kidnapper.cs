@@ -10,6 +10,7 @@ public class Kidnapper : MonoBehaviour
     public GameObject DieKidnapper;
     public Animator animator;
     public Slider slider;
+    private AudioSource audio;
 
     public float FireTimer = 0;
     public float FireTime = 3f;
@@ -22,7 +23,7 @@ public class Kidnapper : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
-        
+        audio = this.GetComponent<AudioSource>();
     }
     
     void Update()
@@ -69,10 +70,7 @@ public class Kidnapper : MonoBehaviour
         print("Kidnapper开火动画！");
         Gun.SetActive(true);
         FireState = 1;
-
+        audio.Play();
         slider.value += 0.5f;
-
-
-
     }
 }
