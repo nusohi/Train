@@ -423,6 +423,11 @@ Prefab:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114601162404660092, guid: 675131f636a7e384a9aba8ea3ec51104,
+        type: 2}
+      propertyPath: CryTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675131f636a7e384a9aba8ea3ec51104, type: 2}
   m_IsPrefabAsset: 0
@@ -980,6 +985,11 @@ Prefab:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114601162404660092, guid: 675131f636a7e384a9aba8ea3ec51104,
+        type: 2}
+      propertyPath: CryTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675131f636a7e384a9aba8ea3ec51104, type: 2}
   m_IsPrefabAsset: 0
@@ -1062,7 +1072,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4194112840751374, guid: ab43d56f6a316d94ab46e743295d24fa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.471
+      value: -7.602
       objectReference: {fileID: 0}
     - target: {fileID: 4194112840751374, guid: ab43d56f6a316d94ab46e743295d24fa, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1094,7 +1104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4194112840751374, guid: ab43d56f6a316d94ab46e743295d24fa, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.2698846
+      value: 0.75806665
       objectReference: {fileID: 0}
     - target: {fileID: 4194112840751374, guid: ab43d56f6a316d94ab46e743295d24fa, type: 2}
       propertyPath: m_LocalScale.z
@@ -1690,7 +1700,6 @@ MonoBehaviour:
   bossdie: 0
   dog: {fileID: 398055653}
   DogDie: 0
-  children: {fileID: 0}
   MousePosition: {x: 0, y: 0, z: 0}
   ChildPosition: {x: 0, y: 0, z: 0}
   BadEnd: 0
@@ -2017,6 +2026,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114601162404660092, guid: 675131f636a7e384a9aba8ea3ec51104,
+        type: 2}
+      propertyPath: CryTime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675131f636a7e384a9aba8ea3ec51104, type: 2}
