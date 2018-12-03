@@ -10,12 +10,15 @@ public class Children : MonoBehaviour
     private Animator animator;
 
     public int CanStop = 0;
+    public AudioSource CrySource;
+    
 
     public float StayTimer = 0;            //劫匪停留时间
     public float StayTime = 5f;
 
     void Start() {
-        animator = this.GetComponent<Animator>();    
+        animator = this.GetComponent<Animator>();
+        CrySource = this.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -57,9 +60,10 @@ public class Children : MonoBehaviour
 
         isCrying = true;
 
+
         print("哭的动画");
         animator.SetTrigger("Cry");
-
+        CrySource.Play();
         // 哭的音效
         KidnapperMove._intance.navAgent.speed = 0;
         KidnapperMove._intance.GameState = KidnapperMove.GotoChild;
