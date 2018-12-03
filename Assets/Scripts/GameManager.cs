@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     //实例
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public static float CarriageLength;
 
     public float Countdown = 60.0f;//倒计时
+    public Text CountDownText;
+
     //大人
     private int AdultNumber = 7;
     private string CurrentCharacter;
@@ -54,10 +57,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
         //判断结局
-        Countdown -= Time.deltaTime;//更新倒计时
-        if(Countdown<=0)
+        if(Countdown>0)
+        {
+            //倒计时相关
+            Countdown -= Time.deltaTime;//更新倒计时
+            CountDownText.text = "Time  :  " + (int)Countdown;
+        }
+        else
         {
             if(KidnapperDie==false&&bossdie==false)//劫匪都没死
             {
