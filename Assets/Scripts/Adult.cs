@@ -45,7 +45,7 @@ public class Adult : MonoBehaviour {
     
     // 碰撞检测
     private void OnTriggerEnter(Collider other) {
-        print("人" + ID + "碰到了" + other.name);
+        // print("人" + ID + "碰到了" + other.name);
         switch (other.tag) {
             // 道具
             case "Knife":
@@ -71,7 +71,7 @@ public class Adult : MonoBehaviour {
                 if (isMoving) {
                     other.SendMessage("AddAttention");
                 }
-                print("ID " + ID + " HasKinfe: " + (hasKnife ? "true" : "false") + "HasBone: " + (hasBone ? "true" : "false")); ;
+                // print("ID " + ID + " HasKinfe: " + (hasKnife ? "true" : "false") + "HasBone: " + (hasBone ? "true" : "false")); ;
                 break;
             // 活物
             case "Kidnapper":

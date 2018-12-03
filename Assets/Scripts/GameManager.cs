@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     //实例
@@ -9,9 +8,7 @@ public class GameManager : MonoBehaviour {
     //车厢长度
     public static float CarriageLength;
 
-    //UI文本
-    public Text CountDownText;
-    public float Countdown = 60f;//倒计时
+    public float Countdown = 60.0f;//倒计时
     //大人
     private int AdultNumber = 7;
     private string CurrentCharacter;
@@ -27,7 +24,8 @@ public class GameManager : MonoBehaviour {
     //狗
     public Dog dog;
     public bool DogDie=false;
-
+    //小孩
+    public Children children;
 
 
 
@@ -35,6 +33,8 @@ public class GameManager : MonoBehaviour {
     public Vector3 MousePosition;
     private Vector3 mouseTargetPos;
 
+    //小孩位置
+    public Vector3 ChildPosition;
 
     //结局
     public bool BadEnd = false;
@@ -54,14 +54,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //倒计时相关
-        if(Countdown>0)
-        {
-            Countdown -= Time.deltaTime;//更新倒计时
-            CountDownText.text = "Time:" + (int)Countdown;
-        }
+
         //判断结局
-        else
+        Countdown -= Time.deltaTime;//更新倒计时
+        if(Countdown<=0)
         {
             if(KidnapperDie==false&&bossdie==false)//劫匪都没死
             {
@@ -75,7 +71,6 @@ public class GameManager : MonoBehaviour {
             {
                 BadEnd = true;
             }
-            GameOver();
         }
         
         
@@ -102,19 +97,32 @@ public class GameManager : MonoBehaviour {
                         mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Children":
-                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        
+                        if (children.isCrying == false)
+                        {
+                            ChildPosition = mouseHit.collider.gameObject.transform.position;
+                            print("哭");
+                            mouseHit.collider.gameObject.SendMessage("Cry");
+                        }
+
                         break;
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
                         break;
                     default:
                         print("碰到了别的东西 " + mouseHit.collider.gameObject.name);
+                        MoveCharacter();
                         break;
                 }
 
             }
             
         }
+        
+
+        //结局相关
+
+
 	}
    
 

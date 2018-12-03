@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -141,11 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attention: 0
-  Adult: {fileID: 0}
-  Children: {fileID: 0}
-  kidnapper: {fileID: 0}
+  DieKidnapper: {fileID: 1862943935451224, guid: d9961abac77a7c146b8d67805b36537d,
+    type: 2}
   IsDead: 0
-  rigidbody: {fileID: 0}
 --- !u!1 &49030078
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +801,7 @@ Prefab:
       objectReference: {fileID: 49030079}
     - target: {fileID: 4463856792201588, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
       propertyPath: m_LocalScale.x
-      value: -0.1273429
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 65967301783786466, guid: e806e5418d01b2b4a9260aa1350c8468,
         type: 2}
@@ -847,6 +845,14 @@ Prefab:
     - target: {fileID: 1331064484964056, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
       propertyPath: m_TagString
       value: Kidnapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463856792201588, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463856792201588, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e806e5418d01b2b4a9260aa1350c8468, type: 2}
@@ -1518,7 +1524,9 @@ MonoBehaviour:
   bossdie: 0
   dog: {fileID: 398055653}
   DogDie: 0
+  children: {fileID: 0}
   MousePosition: {x: 0, y: 0, z: 0}
+  ChildPosition: {x: 0, y: 0, z: 0}
   BadEnd: 0
   NormalEnd: 0
   TrueEnd: 0

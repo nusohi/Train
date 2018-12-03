@@ -20,8 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4276344863358264}
   - component: {fileID: 212257273289912454}
-  - component: {fileID: 114759411588140618}
-  - component: {fileID: 114483598262594370}
   m_Layer: 0
   m_Name: "\u52AB\u532AA"
   m_TagString: Untagged
@@ -35,45 +33,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1862943935451224}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: 0.1, z: 0}
-  m_LocalScale: {x: 0.103083074, y: 0.103083074, z: 0.103083074}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.05, y: -1.42, z: -2.53}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114483598262594370
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1862943935451224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a20a1df9360b6843ac38cb300b43946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WayPoints: []
-  PatrolTimer: 0
-  PatrolTime: 3
-  navAgent: {fileID: 0}
---- !u!114 &114759411588140618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1862943935451224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96ec15e590876be40b12e3cd8b0aa574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attention: 0
-  Adult: {fileID: 0}
-  Children: {fileID: 0}
-  kidnapper: {fileID: 0}
-  IsDead: 0
-  rigidbody: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &212257273289912454
 SpriteRenderer:
   m_ObjectHideFlags: 1

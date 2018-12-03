@@ -6,33 +6,57 @@ using UnityEngine.AI;
 
 public class KidnapperMove : MonoBehaviour
 {
-    public static KidnapperMove Instance;
+   
     private Vector3 localScale;
     
     public Transform[] WayPoints;
+    
+
+
     public float PatrolTimer = 0;
     public float PatrolTime = 3f;
     public NavMeshAgent navAgent;
+    
     private int Index = 0;
-	// Use this for initialization
+    
+
+
+
+    public int GameState = Patroling;
+    public static int Patroling = 0;
+    public static int GotoChild = 1;
+
+    public static KidnapperMove _intance;
+
+    // Use this for initialization
     void Awake()
     {
         navAgent = this.GetComponent<NavMeshAgent>();
+       
         navAgent.destination = WayPoints[Index].position;
+        
+       
+
     }
 	void Start ()
 	{
-	    Instance = this;
+	    _intance = this;
 	    localScale = transform.localScale;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		Patrolling();
+        if(GameState==Patroling)
+        { Patrolling();}
+        else
+        {
+            GotoChildren();
+        }
 	}
 
     private void Patrolling()
     {
+        navAgent.speed = 3.5f;
         if (navAgent.remainingDistance < 0.5f)
         {
             if (Index==0)
@@ -63,5 +87,11 @@ public class KidnapperMove : MonoBehaviour
                
             }
         }
+    }
+
+    private void GotoChildren()
+    {
+        navAgent.speed = 10f;
+        navAgent.destination = GameManager.Instance.ChildPosition;
     }
 }
