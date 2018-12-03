@@ -65,11 +65,11 @@ public class Adult : MonoBehaviour {
             // 碰到绑匪的眼神
             case "Eyes":
                 if (hasKnife) {
-                    other.SendMessage("Fire");
+                    other.GetComponentInParent<Kidnapper>().Fire();
                     Die();
                 }
                 if (isMoving) {
-                    other.SendMessage("AddAttention");
+                    other.GetComponentInParent<Kidnapper>().AddAttention();
                 }
                 // print("ID " + ID + " HasKinfe: " + (hasKnife ? "true" : "false") + "HasBone: " + (hasBone ? "true" : "false")); ;
                 break;

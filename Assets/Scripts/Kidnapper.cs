@@ -6,12 +6,13 @@ public class Kidnapper : MonoBehaviour
 {
     public int Attention = 0;//警戒值
     public GameObject DieKidnapper;
-   
+    public static Kidnapper Instance;
     public bool IsDead = false;
     
     // Use this for initialization
     void Start()
     {
+        Instance = this;
     }
 
     // Update is called once per frame
