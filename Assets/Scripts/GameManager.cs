@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
     public Dog dog;
     public bool DogDie=false;
     //小孩
-    public Children children;
+    // public Children[] children;
 
 
 
@@ -104,14 +104,9 @@ public class GameManager : MonoBehaviour {
                         mouseHit.collider.gameObject.SendMessage("GetID");
                         break;
                     case "Children":
-                        
-                        if (children.isCrying == false)
-                        {
-                            ChildPosition = mouseHit.collider.gameObject.transform.position;
-                            print("哭");
-                            mouseHit.collider.gameObject.SendMessage("Cry");
-                        }
-
+                        // mouseHit.collider.gameObject.SendMessage("GetID");
+                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        ChildPosition = mouseHit.collider.gameObject.transform.position;
                         break;
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
@@ -190,16 +185,16 @@ public class GameManager : MonoBehaviour {
 
 
     //控制人物
-    public void ControlCharacter(string tag,int ID=0)
-    {
+    public void ControlCharacter(string tag, int ID = 0) {
         CurrentCharacter = tag;
-        if(tag=="Adult")
-        {
+        if (tag == "Adult") {
             CurrentID = ID;
         }
-        else if(tag=="Dog")
-        {
+        else if (tag == "Dog") {
             CurrentID = 0;
+        }
+        else if (tag == "Children") {
+            CurrentChildrenID = ID;
         }
     }
 

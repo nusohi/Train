@@ -13,6 +13,10 @@ public class Dog : Adult {
             case "Kidnapper":
                 other.gameObject.SendMessage("Die");
                 break;
+            case "Eyes":
+                other.gameObject.SendMessage("Fire");
+                Die();
+                break;
             default:
                 break;
         }

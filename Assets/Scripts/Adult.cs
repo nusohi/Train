@@ -79,7 +79,6 @@ public class Adult : MonoBehaviour {
                 break;
             case "Dog":
                 EnableDog(other.gameObject);
-                print("人" + ID + "碰到狗了");
                 break;
             default:
                 break;
@@ -130,16 +129,16 @@ public class Adult : MonoBehaviour {
     //死亡
     public void Die() {
         isDead = true;
-        print("我死了，ID " + ID);
+        print(this.tag + "我死了，ID " + ID);
         GameManager.Instance.Die(this.tag, ID);
-
+        collision.enabled = false;
         /***************************************  缺动画  *************************************/
     }
 
 
     // 状态'接口'
     public void GetID() {
-        print("获取ID" + ID);
+        print("获取 " + this.tag + " ID " + ID);
         GameManager.Instance.ControlCharacter(this.tag, ID);
     }
     public void HasKnife(ref bool hasKnife) {

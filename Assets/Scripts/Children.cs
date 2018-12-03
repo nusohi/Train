@@ -10,8 +10,8 @@ public class Children : MonoBehaviour
 
     void Update()
     {
-        if(isCrying==true)
-        CryTimer += Time.deltaTime;
+        if (isCrying == true)
+            CryTimer += Time.deltaTime;
         if (CryTimer >= CryTime)
         {
             CryTimer = 0;
@@ -23,15 +23,17 @@ public class Children : MonoBehaviour
 
     public void Cry()
     {
+        if (isCrying) {
+            return;
+        }
+
 
         isCrying = true;
-       // 哭的音效
+
+        print("哭的动画");
+
+        // 哭的音效
         KidnapperMove._intance.navAgent.speed = 0;
-
-
         KidnapperMove._intance.GameState = KidnapperMove.GotoChild;
-        
-      
-
     }
 }

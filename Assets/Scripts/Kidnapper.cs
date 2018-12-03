@@ -43,4 +43,8 @@ public class Kidnapper : MonoBehaviour
         Destroy(this.gameObject);
        
     }
+
+    public void Fire() {
+        print("Kidnapper开火动画！");
+    }
 }
