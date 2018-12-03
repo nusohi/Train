@@ -1,18 +1,12 @@
 fileFormatVersion: 2
-guid: 87d27af7cbb8b814ba428326547bb587
+guid: 305435bc8b37154448157df64cfaad84
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: "\u4EBA\u52A8_yellow_0"
-    21300002: "\u4EBA\u52A8_yellow_1"
-    21300004: "\u4EBA\u52A8_yellow_2"
-    21300006: "\u4EBA\u52A8_yellow_3"
-    21300008: "\u4EBA\u52A8_yellow_4"
-    21300010: "\u4EBA\u52A8_yellow_5"
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -40,13 +34,13 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
+    wrapU: -1
+    wrapV: -1
     wrapW: -1
-  nPOTScale: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -55,9 +49,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -75,144 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_0"
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 107
-        width: 650
-        height: 2632
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4ca95065b47e234f88623e61f97f1a1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_1"
-      rect:
-        serializedVersion: 2
-        x: 1677
-        y: 145
-        width: 523
-        height: 2650
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c052945c7cd43541bf54e8bb5184fb0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_2"
-      rect:
-        serializedVersion: 2
-        x: 2595
-        y: 134
-        width: 628
-        height: 2653
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 963011e0acdefd2429f22f567819af15
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_3"
-      rect:
-        serializedVersion: 2
-        x: 3598
-        y: 1505
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89dd1609e53122f4881444601a2f3ee5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_4"
-      rect:
-        serializedVersion: 2
-        x: 3662
-        y: 223
-        width: 576
-        height: 2613
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 378ac79e041cd864d97e47cc99669701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u52A8_yellow_5"
-      rect:
-        serializedVersion: 2
-        x: 4631
-        y: 192
-        width: 630
-        height: 2614
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cc485ebf998134499591784b81b6711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9574d66b9de143c4b9b29dd3ddd3fd3e
+    spriteID: 
     vertices: []
     indices: 
     edges: []
