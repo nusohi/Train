@@ -25,7 +25,7 @@ public class KidnapperMove : MonoBehaviour
     public int GameState = Patroling;
     public static int Patroling = 0;
     public static int GotoChild = 1;
-
+   
     
 
     public static KidnapperMove _intance;
@@ -53,7 +53,7 @@ public class KidnapperMove : MonoBehaviour
         else
         {
     
-    GotoChildren();
+           GotoChildren();
         }
 	}
 
@@ -96,7 +96,8 @@ public class KidnapperMove : MonoBehaviour
 
     private void GotoChildren()
     {
-        navAgent.destination = GameManager.Instance.ChildPosition;
+        navAgent.speed = 20f;
+       
         if (navAgent.destination.x < transform.position.x)
         {
             //左转头
@@ -113,7 +114,7 @@ public class KidnapperMove : MonoBehaviour
             }
 
         }
-        navAgent.speed = 20f;
+        navAgent.destination = GameManager.Instance.ChildPosition;
        
       
     }
