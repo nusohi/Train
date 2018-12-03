@@ -13,7 +13,8 @@ public class OnClick : MonoBehaviour {
 	void Update () {
 	    if (Input.GetMouseButtonDown(0))
 	    {
-	        Application.LoadLevel(1);
+            SceneFadeInOut.Instance.EndScene();
+            Application.LoadLevel(1);
         }
 	}
 }

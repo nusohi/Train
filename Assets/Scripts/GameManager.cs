@@ -4,20 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
+    
     //实例
     public static GameManager Instance;
     //车厢长度
     public static float CarriageLength;
-
+    //UI
     public float Countdown = 60.0f;//倒计时
     public Text CountDownText;
+
 
     //大人
     private int AdultNumber = 7;
     private string CurrentCharacter;
     public int CurrentID;
     public Adult[] Adults;
-    public bool[] AdultDie;
+    public bool AdultDie=false;
     //劫匪A
     public Kidnapper Kidnappers;
     public bool KidnapperDie;
@@ -27,8 +29,6 @@ public class GameManager : MonoBehaviour {
     //狗
     public Dog dog;
     public bool DogDie=false;
-    //小孩
-    // public Children[] children;
 
 
 
@@ -46,40 +46,48 @@ public class GameManager : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         Instance = this;
         for(int i=0;i<Adults.Length;i++)
         {
             Adults[i].ID = i;
         }
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         //判断结局
-        if(Countdown>0)
+        if(KidnapperDie&&bossdie)//劫匪全死
         {
-            //倒计时相关
-            Countdown -= Time.deltaTime;//更新倒计时
-            CountDownText.text = "Time  :  " + (int)Countdown;
-        }
-        else
-        {
-            if(KidnapperDie==false&&bossdie==false)//劫匪都没死
+            if(AdultDie||DogDie)//至少有一人或狗死亡
             {
-                NormalEnd = true;   //NormalEnd场景会跳转到badend
+                NormalEnd = true;
             }
-            else if(KidnapperDie==true&&bossdie==true)  //劫匪全死
+            else//没人死亡
             {
                 TrueEnd = true;
             }
+        }
+        else
+        {
+            if(Countdown>0)
+            {
+                //倒计时相关
+                Countdown -= Time.deltaTime;//更新倒计时
+                CountDownText.text = "Time  :  " + (int)Countdown;
+            }
             else
             {
-                BadEnd = true;
+                if(KidnapperDie==false||bossdie==false)//劫匪没全死
+                {
+                    BadEnd = true;   //NormalEnd场景会跳转到badend
+                }
             }
+
         }
-        
+        GameOver();
         
         //鼠标点击
         MousePosition = Input.mousePosition;
@@ -105,8 +113,9 @@ public class GameManager : MonoBehaviour {
                         break;
                     case "Children":
                         // mouseHit.collider.gameObject.SendMessage("GetID");
-                        mouseHit.collider.gameObject.SendMessage("Cry");
                         ChildPosition = mouseHit.collider.gameObject.transform.position;
+                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        
                         break;
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
@@ -125,13 +134,10 @@ public class GameManager : MonoBehaviour {
         }
         
 
-        //结局相关
-
-
 	}
    
 
-    //判断游戏结局
+    //游戏结局
     public void GameOver()
     {
 
@@ -162,7 +168,7 @@ public class GameManager : MonoBehaviour {
     {
         if(tag=="Adult")    //大人死
         {
-            AdultDie[ID] = true;
+            AdultDie = true;
             Adults[ID].GetComponent <Adult> ().enabled = false;
             return;
         }

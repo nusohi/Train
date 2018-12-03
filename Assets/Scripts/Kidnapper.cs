@@ -24,11 +24,15 @@ public class Kidnapper : MonoBehaviour
     {
         if (Attention >= 100)
         {
-            GameManager.Instance.GameOver();
+            GameManager.Instance.BadEnd = true;
+            //GameManager.Instance.GameOver();
         }
     }
 
-   
+   public void AddAttention()
+    {
+        Attention += 5;
+    }
 
     public void Die()
     {
