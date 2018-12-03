@@ -25,6 +25,8 @@ public class KidnapperMove : MonoBehaviour
     public int GameState = Patroling;
     public static int Patroling = 0;
     public static int GotoChild = 1;
+   
+    
 
     public static KidnapperMove _intance;
 
@@ -50,7 +52,8 @@ public class KidnapperMove : MonoBehaviour
         { Patrolling();}
         else
         {
-            GotoChildren();
+    
+           GotoChildren();
         }
 	}
 
@@ -59,21 +62,7 @@ public class KidnapperMove : MonoBehaviour
         navAgent.speed = 3.5f;
         if (navAgent.remainingDistance < 0.5f)
         {
-            if (Index==0)
-            {
-                localScale.x = Math.Abs(localScale.x);
-                transform.localScale = localScale;
-
-            }
-            else
-            {
-                if (Index==1)
-                {
-                    localScale.x = -Math.Abs(localScale.x);
-                    transform.localScale = localScale;
-                }
-               
-            }
+           
 
             
 
@@ -83,6 +72,22 @@ public class KidnapperMove : MonoBehaviour
                 Index++;
                  Index %= 4;
                 navAgent.destination = WayPoints[Index].position;
+                if (navAgent.destination.x<transform.position.x)
+            {
+                //左转头
+                localScale.x = Math.Abs(localScale.x);
+                transform.localScale = localScale;
+
+            }
+            else
+            {
+               
+                {
+                    localScale.x = -Math.Abs(localScale.x);
+                    transform.localScale = localScale;
+                }
+               
+            }
                 PatrolTimer = 0;
                
             }
@@ -91,7 +96,26 @@ public class KidnapperMove : MonoBehaviour
 
     private void GotoChildren()
     {
-        navAgent.speed = 10f;
+        navAgent.speed = 20f;
+       
+        if (navAgent.destination.x < transform.position.x)
+        {
+            //左转头
+            localScale.x = Math.Abs(localScale.x);
+            transform.localScale = localScale;
+
+        }
+        else
+        {
+
+            {
+                localScale.x = -Math.Abs(localScale.x);
+                transform.localScale = localScale;
+            }
+
+        }
         navAgent.destination = GameManager.Instance.ChildPosition;
+       
+      
     }
 }

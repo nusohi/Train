@@ -113,8 +113,9 @@ public class GameManager : MonoBehaviour {
                         break;
                     case "Children":
                         // mouseHit.collider.gameObject.SendMessage("GetID");
-                        mouseHit.collider.gameObject.SendMessage("Cry");
                         ChildPosition = mouseHit.collider.gameObject.transform.position;
+                        mouseHit.collider.gameObject.SendMessage("Cry");
+                        
                         break;
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
