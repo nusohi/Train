@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ec15e590876be40b12e3cd8b0aa574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gun: {fileID: 1440291322}
+  Gun: {fileID: 0}
   Attention: 0
   DieKidnapper: {fileID: 1862943935451224, guid: d9961abac77a7c146b8d67805b36537d,
     type: 2}
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e23981e807ca243b5707c20cb68740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DieAdult: {fileID: 1290207621442228, guid: 4aa76743f7b7e1c479189c96b74fea9d, type: 2}
+  DieAdult: {fileID: 0}
   isMoving: 0
   isDead: 0
   hasKnife: 0
@@ -863,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &489591329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2248,8 +2248,8 @@ GameObject:
   - component: {fileID: 1188237926}
   - component: {fileID: 1188237930}
   - component: {fileID: 1188237929}
-  - component: {fileID: 1188237928}
   - component: {fileID: 1188237927}
+  - component: {fileID: 1188237928}
   m_Layer: 0
   m_Name: "\u52AB\u532AB"
   m_TagString: Kidnapper
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1188237922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a20a1df9360b6843ac38cb300b43946, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a66814d82ec294385315ff28e83f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WayPoints:
@@ -2383,7 +2383,6 @@ MonoBehaviour:
   PatrolTime: 3
   navAgent: {fileID: 1188237930}
   animator: {fileID: 1188237923}
-  GameState: 0
 --- !u!65 &1188237929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2428,7 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ec15e590876be40b12e3cd8b0aa574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gun: {fileID: 653372795}
+  Gun: {fileID: 0}
   Attention: 0
   DieKidnapper: {fileID: 1270321564096786, guid: 64d264448b161a74db2a356cc1306f64,
     type: 2}
