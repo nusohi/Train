@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Adult_dark
+  m_Controller: {fileID: 9100000, guid: b0a09d3aae843014197c16bd8f121670, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5ccf71b59bdc48f4e99c445d9521bf71, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0ae17d8eb34aa5e4884e9f54c7cc5b41, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c40c44d8c35793145a4fd5f6c5e56701, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 796e38f2d9ff9bf41bde4eb22757e344, type: 2}

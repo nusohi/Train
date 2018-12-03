@@ -16,6 +16,7 @@ public class KidnapperMove : MonoBehaviour
     public float PatrolTimer = 0;
     public float PatrolTime = 3f;
     public NavMeshAgent navAgent;
+    public Animator animator;
     
     private int Index = 0;
     
@@ -32,13 +33,10 @@ public class KidnapperMove : MonoBehaviour
     void Awake()
     {
         navAgent = this.GetComponent<NavMeshAgent>();
-       
+        animator = this.GetComponent<Animator>();
         navAgent.destination = WayPoints[Index].position;
-        
-       
-
     }
-	void Start ()
+    void Start ()
 	{
 	    _intance = this;
 	    localScale = transform.localScale;
@@ -56,6 +54,9 @@ public class KidnapperMove : MonoBehaviour
 
     private void Patrolling()
     {
+        // 移动Move动画
+        animator.SetTrigger("Move");
+
         navAgent.speed = 3.5f;
         if (navAgent.remainingDistance < 0.5f)
         {

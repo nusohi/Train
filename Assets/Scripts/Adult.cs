@@ -118,12 +118,10 @@ public class Adult : MonoBehaviour {
         // 转头
         if (X - targetPosition.x > 0) {
             // 向右看
-            ///localScale.x = -Math.Abs(localScale.x);
             transform.rotation = turnRight;
         }
         else if (X - targetPosition.x < 0){
             // 向左看
-            ///localScale.x = Math.Abs(localScale.x);
             transform.rotation = turnLeft;
         }
 
@@ -141,6 +139,8 @@ public class Adult : MonoBehaviour {
         GameManager.Instance.Die(this.tag, ID);
         collision.enabled = false;
         /***************************************  缺动画  *************************************/
+        animator.SetTrigger("Idle");    // 暂用
+        // 倒地 旋转 出血
     }
 
 
