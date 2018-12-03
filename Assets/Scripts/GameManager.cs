@@ -193,9 +193,6 @@ public class GameManager : MonoBehaviour {
         else if (tag == "Dog") {
             CurrentID = 0;
         }
-        else if (tag == "Children") {
-            CurrentChildrenID = ID;
-        }
     }
 
     //移动人物
