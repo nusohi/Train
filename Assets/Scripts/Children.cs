@@ -5,13 +5,18 @@ using UnityEngine;
 public class Children : MonoBehaviour
 {
     public bool isCrying = false;
-    public float CryTimer = 0;            //哭的冷却时间
+    public float CryTimer = 0;
     public float CryTime = 15f;
+    private Animator animator;
 
     public int CanStop = 0;
 
     public float StayTimer = 0;            //劫匪停留时间
     public float StayTime = 5f;
+
+    void Start() {
+        animator = this.GetComponent<Animator>();    
+    }
 
     void Update()
     {
@@ -35,6 +40,7 @@ public class Children : MonoBehaviour
         if (StayTimer >= StayTime)
         {
            
+            animator.SetTrigger("Idle");
             KidnapperMove._intance.GameState = KidnapperMove.Patroling;
             StayTimer = 0;
             CanStop = 0;
@@ -52,6 +58,7 @@ public class Children : MonoBehaviour
         isCrying = true;
 
         print("哭的动画");
+        animator.SetTrigger("Cry");
 
         // 哭的音效
         KidnapperMove._intance.navAgent.speed = 0;

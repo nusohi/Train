@@ -6,16 +6,20 @@ public class Kidnapper : MonoBehaviour
 {
     public int Attention = 0;//警戒值
     public GameObject DieKidnapper;
-    public static Kidnapper Instance;
-    public bool IsDead = false;
+    public Animator animator;
+
     
-    // Use this for initialization
+
+
+    public bool IsDead = false;
+
+    
+    
     void Start()
     {
-        Instance = this;
+        animator = this.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Attention >= 100)
@@ -43,5 +47,6 @@ public class Kidnapper : MonoBehaviour
 
     public void Fire() {
         print("Kidnapper开火动画！");
+        animator.SetTrigger("Fire");
     }
 }

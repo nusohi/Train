@@ -15,6 +15,7 @@ public class Adult : MonoBehaviour {
     public GameObject Knife;
     public GameObject Bone;
     private BoxCollider collision;
+    private Animator animator;
 
     // 移动位置
     protected Vector3 targetPosition;
@@ -28,6 +29,7 @@ public class Adult : MonoBehaviour {
 
     void Start() {
         targetPosition = transform.position;
+        animator = this.GetComponent<Animator>();
         collision = this.GetComponent<BoxCollider>();
         localScale = transform.localScale;
     }
@@ -37,9 +39,14 @@ public class Adult : MonoBehaviour {
         if (isMoving) {
             LerpT = step / Math.Abs(targetPosition.x - transform.position.x);
             transform.position = Vector3.Lerp(this.transform.position, targetPosition, LerpT);
-            /***************************************  缺动画  *************************************/
+            /***************************************  动画  *************************************/
+            animator.SetTrigger("Move");
+
             if (transform.position == targetPosition)
                 isMoving = false;
+        }
+        else {
+            animator.SetTrigger("Idle");
         }
     }
     
@@ -111,19 +118,18 @@ public class Adult : MonoBehaviour {
         // 转头
         if (X - targetPosition.x > 0) {
             // 向右看
-            ///localScale.x = -Math.Abs(localScale.x);
             transform.rotation = turnRight;
         }
         else if (X - targetPosition.x < 0){
             // 向左看
-            ///localScale.x = Math.Abs(localScale.x);
             transform.rotation = turnLeft;
         }
 
         // 移动
-        isMoving = true;
         LerpT = step / Math.Abs(X - targetPosition.x);
         targetPosition.x = X;
+        animator.SetTrigger("Move");
+        isMoving = true;
     }
 
     //死亡
@@ -133,6 +139,8 @@ public class Adult : MonoBehaviour {
         GameManager.Instance.Die(this.tag, ID);
         collision.enabled = false;
         /***************************************  缺动画  *************************************/
+        animator.SetTrigger("Idle");    // 暂用
+        // 倒地 旋转 出血
     }
 
 
