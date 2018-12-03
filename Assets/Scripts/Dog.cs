@@ -14,8 +14,9 @@ public class Dog : Adult {
                 other.gameObject.SendMessage("Die");
                 break;
             case "Eyes":
-                other.gameObject.SendMessage("Fire");
+
                 Die();
+                other.GetComponentInParent<Kidnapper>().Fire();
                 break;
             default:
                 break;

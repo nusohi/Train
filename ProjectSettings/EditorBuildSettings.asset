@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: dbe3e7d9093f94c4a94fb4a36c638c1f
+  - enabled: 1
+    path: Assets/Scenes/BadEnding.unity
+    guid: dd7e592d8c0ffdc45996470b68c1ce05
+  - enabled: 1
+    path: Assets/Scenes/TrueEnding.unity
+    guid: fc67bbda5058a534093b0f03a49fcea5
+  - enabled: 1
+    path: Assets/Scenes/NormalEnding.unity
+    guid: 0c8fe9510cd18124e8b003afb2c607b6
   m_configObjects: {}

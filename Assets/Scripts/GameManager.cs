@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
     public Dog dog;
     public bool DogDie=false;
 
-
+    public AudioSource DogSource;
 
     //鼠标位置
     public Vector3 MousePosition;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
         {
             Adults[i].ID = i;
         }
-        
+	    DogSource = this.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -110,6 +110,9 @@ public class GameManager : MonoBehaviour {
                         break;
                     case "Dog":
                         mouseHit.collider.gameObject.SendMessage("GetID");
+                       DogSource.Play();
+                        Kidnappers.AddAttention();
+
                         break;
                     case "Children":
                         // mouseHit.collider.gameObject.SendMessage("GetID");

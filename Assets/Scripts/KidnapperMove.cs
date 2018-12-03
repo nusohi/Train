@@ -115,7 +115,8 @@ public class KidnapperMove : MonoBehaviour
             }
 
         }
-        navAgent.destination = GameManager.Instance.ChildPosition;
+        
+        navAgent.destination = new Vector3(GameManager.Instance.ChildPosition.x, GameManager.Instance.ChildPosition.y,this.transform.position.z);
        
       
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Adult : MonoBehaviour {
 
     public int ID { get; set; }
+    public GameObject DieAdult;
     public bool isMoving = false;
     public bool isDead = false;
     public bool hasKnife = false;
@@ -140,7 +141,8 @@ public class Adult : MonoBehaviour {
         collision.enabled = false;
         /***************************************  缺动画  *************************************/
         animator.SetTrigger("Idle");    // 暂用
-        // 倒地 旋转 出血
+        Instantiate(DieAdult, new Vector3(this.transform.position.x, DieAdult.transform.position.y, this.transform.position.z), DieAdult.transform.rotation);
+        Destroy(this.gameObject);
     }
 
 

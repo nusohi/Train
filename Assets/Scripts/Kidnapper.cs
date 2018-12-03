@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Kidnapper : MonoBehaviour
 {
-    public int Attention = 0;//警戒值
+    public GameObject Gun;
+    public float Attention = 0;//警戒值
     public GameObject DieKidnapper;
     public Animator animator;
+    public Slider slider;
 
-    
-
+    public float FireTimer = 0;
+    public float FireTime = 3f;
+    private int FireState = 0;
 
     public bool IsDead = false;
 
@@ -18,20 +22,36 @@ public class Kidnapper : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        
     }
     
     void Update()
     {
-        if (Attention >= 100)
+        if (slider.value >= 1)
         {
             GameManager.Instance.BadEnd = true;
             //GameManager.Instance.GameOver();
         }
+
+        if (FireState == 1)
+        {
+            FireTimer += Time.deltaTime;
+        }
+
+        if (FireTimer >= FireTime)
+        {
+            FireState = 0;
+            Gun.SetActive(false);
+            FireTimer = 0;
+        }
+         
     }
 
    public void AddAttention()
-    {
-        Attention += 5;
+   {
+
+       slider.value += 0.1f;
+      
     }
 
     public void Die()
@@ -47,6 +67,12 @@ public class Kidnapper : MonoBehaviour
 
     public void Fire() {
         print("Kidnapper开火动画！");
-        animator.SetTrigger("Fire");
+        Gun.SetActive(true);
+        FireState = 1;
+
+        slider.value += 0.5f;
+
+
+
     }
 }
