@@ -12,6 +12,8 @@ TagManager:
   - Knife
   - Bone
   - Carriage
+  - Eyes
+  - Wall
   layers:
   - Default
   - TransparentFX

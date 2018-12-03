@@ -111,6 +111,9 @@ public class GameManager : MonoBehaviour {
                     case "Carriage"://选中车厢则之前选中的人物移动到鼠标点击位置
                         MoveCharacter();
                         break;
+                    case "Wall":
+                        print("不能走出车啊！");
+                        break;
                     default:
                         print("碰到了别的东西 " + mouseHit.collider.gameObject.name);
                         MoveCharacter();

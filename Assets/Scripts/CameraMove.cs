@@ -7,12 +7,11 @@ public class CameraMove : MonoBehaviour {
     public bool InButton = false;
     public bool left = false;
     public float ScrollSpeed=1.0f;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public float MaxLeftPos = -21f;
+    public float MaxRightPos = 17f;
+
+
 	
-	// Update is called once per frame
 	void Update () {
 		if(InButton)
         {
@@ -22,12 +21,14 @@ public class CameraMove : MonoBehaviour {
 
     public void MoveCamera(bool left)
     {
-        if(left)
-        {
+        if (left) {
+            if (transform.position.x <= MaxLeftPos)
+                return;
             transform.position -= new Vector3(ScrollSpeed, 0, 0);
         }
-        else
-        {
+        else {
+            if (transform.position.x >= MaxRightPos)
+                return;
             transform.position += new Vector3(ScrollSpeed, 0, 0);
         }
     }
